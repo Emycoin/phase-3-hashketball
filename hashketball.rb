@@ -1,4 +1,5 @@
 # Write your code below game_hash
+require 'pry'
 def game_hash
   {
     home: {
@@ -126,4 +127,51 @@ def game_hash
   }
 end
 
-# Write code here
+def num_points_scored(player_name)
+  game_hash.each do |location, team_data|
+      team_data[:players].each do |player|
+        if player_name == player[:player_name]
+          return player[:points]
+        end
+        
+    end
+  end 
+end
+
+def shoe_size(player_name)
+  game_hash.each do |location, team_data|
+    team_data[:players].each do |player|
+      if player_name == player[:player_name]
+        return player[:shoe]
+      end
+    end
+  end
+end
+
+def team_colors(team_name)
+  game_hash.each do |location, team_data|
+    if team_name == team_data[:team_name]
+      return team_data[:colors]
+  end
+end
+end
+
+
+
+
+# rubyArr.each do |item|
+#   ...your code
+# end
+#  < --- is equiv to  -- >
+# jsArr.forEach(item=> {
+#  ..your code
+#})
+#
+
+#rubyHashMap.each do |key, value|
+#  ... your code
+# end
+#  < --- is equiv to  -- >
+#for(key in jsObj) {
+#  ... your code
+#}
